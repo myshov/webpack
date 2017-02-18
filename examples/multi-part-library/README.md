@@ -27,7 +27,7 @@ module.exports = {
 		library: ["MyLibrary", "[name]"],
 		libraryTarget: "umd"
 	}
-}
+};
 ```
 
 # js/MyLibrary.alpha.js
@@ -124,11 +124,11 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./alpha.js ***!
   \******************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 module.exports = "alpha";
 
-/***/ }
+/***/ })
 /******/ ]);
 });
 ```
@@ -222,11 +222,11 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!*****************!*\
   !*** ./beta.js ***!
   \*****************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 module.exports = "beta";
 
-/***/ }
+/***/ })
 /******/ ]);
 });
 ```
@@ -237,10 +237,10 @@ module.exports = "beta";
 
 ```
 Hash: 082bbeea226fa367215b
-Version: webpack 2.2.0-rc.2
+Version: webpack 2.2.1
              Asset     Size  Chunks             Chunk Names
  MyLibrary.beta.js  3.09 kB       0  [emitted]  beta
-MyLibrary.alpha.js  3.08 kB       1  [emitted]  alpha
+MyLibrary.alpha.js  3.09 kB       1  [emitted]  alpha
 Entrypoint alpha = MyLibrary.alpha.js
 Entrypoint beta = MyLibrary.beta.js
 chunk    {0} MyLibrary.beta.js (beta) 24 bytes [entry] [rendered]
@@ -255,7 +255,7 @@ chunk    {1} MyLibrary.alpha.js (alpha) 25 bytes [entry] [rendered]
 
 ```
 Hash: 082bbeea226fa367215b
-Version: webpack 2.2.0-rc.2
+Version: webpack 2.2.1
              Asset       Size  Chunks             Chunk Names
  MyLibrary.beta.js  785 bytes       0  [emitted]  beta
 MyLibrary.alpha.js  787 bytes       1  [emitted]  alpha

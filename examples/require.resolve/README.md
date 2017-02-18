@@ -105,18 +105,18 @@ module.exports = Math.random();
 /*!**************!*\
   !*** ./a.js ***!
   \**************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 module.exports = Math.random();
 
-/***/ },
+/***/ }),
 /* 1 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************!*\
   !*** ./example.js ***!
   \********************/
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 var a = __webpack_require__(/*! ./a */ 0);
 
@@ -132,7 +132,7 @@ var a2 = __webpack_require__(/*! ./a */ 0);
 // vertify it
 if(a == a2) throw new Error("Cache clear failed :(");
 
-/***/ }
+/***/ })
 /******/ ]);
 ```
 
@@ -141,33 +141,33 @@ if(a == a2) throw new Error("Cache clear failed :(");
 ## Uncompressed
 
 ```
-Hash: 00060b879bc0621a21be
-Version: webpack 2.2.0-rc.2
-    Asset     Size  Chunks             Chunk Names
-output.js  3.21 kB       0  [emitted]  main
+Hash: 5d6a3015eff8d79dcd14
+Version: webpack 2.2.1
+    Asset    Size  Chunks             Chunk Names
+output.js  3.2 kB       0  [emitted]  main
 Entrypoint main = output.js
-chunk    {0} output.js (main) 326 bytes [entry] [rendered]
+chunk    {0} output.js (main) 314 bytes [entry] [rendered]
     > main [1] ./example.js 
     [0] ./a.js 31 bytes {0} [built]
         cjs require ./a [1] ./example.js 1:8-22
         cjs require ./a [1] ./example.js 10:9-23
         require.resolve ./a.js [1] ./example.js 4:10-35
-    [1] ./example.js 295 bytes {0} [built]
+    [1] ./example.js 283 bytes {0} [built]
 ```
 
 ## Minimized (uglify-js, no zip)
 
 ```
-Hash: 00060b879bc0621a21be
-Version: webpack 2.2.0-rc.2
+Hash: 5d6a3015eff8d79dcd14
+Version: webpack 2.2.1
     Asset       Size  Chunks             Chunk Names
 output.js  644 bytes       0  [emitted]  main
 Entrypoint main = output.js
-chunk    {0} output.js (main) 326 bytes [entry] [rendered]
+chunk    {0} output.js (main) 314 bytes [entry] [rendered]
     > main [1] ./example.js 
     [0] ./a.js 31 bytes {0} [built]
         cjs require ./a [1] ./example.js 1:8-22
         cjs require ./a [1] ./example.js 10:9-23
         require.resolve ./a.js [1] ./example.js 4:10-35
-    [1] ./example.js 295 bytes {0} [built]
+    [1] ./example.js 283 bytes {0} [built]
 ```

@@ -83,7 +83,7 @@ module.exports = "It works";
 /******/ 		if(installedChunks[chunkId] === 0)
 /******/ 			return Promise.resolve();
 
-/******/ 		// an Promise means "currently loading".
+/******/ 		// a Promise means "currently loading".
 /******/ 		if(installedChunks[chunkId]) {
 /******/ 			return installedChunks[chunkId][2];
 /******/ 		}
@@ -173,7 +173,7 @@ module.exports = "It works";
 /*!*******************************************!*\
   !*** (webpack)/~/bundle-loader!./file.js ***!
   \*******************************************/
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 var cbs = [], 
 	data;
@@ -190,21 +190,21 @@ __webpack_require__.e/* require.ensure */(0).then((function(require) {
 	}
 }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 
-/***/ },
+/***/ }),
 /* 1 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************!*\
   !*** ./example.js ***!
   \********************/
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! bundle-loader!./file.js */ 0)(function(fileJsExports) {
 	console.log(fileJsExports);
 });
 
 
-/***/ }
+/***/ })
 /******/ ]);
 ```
 
@@ -219,11 +219,11 @@ webpackJsonp([0],{
 /*!*****************!*\
   !*** ./file.js ***!
   \*****************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 module.exports = "It works";
 
-/***/ }
+/***/ })
 
 });
 ```
@@ -233,28 +233,28 @@ module.exports = "It works";
 ## Uncompressed
 
 ```
-Hash: 3760272aaec4944ab110
-Version: webpack 2.2.0-rc.2
+Hash: dd6981a76eaabcafb273
+Version: webpack 2.2.1
       Asset       Size  Chunks             Chunk Names
-0.output.js  228 bytes       0  [emitted]  
+0.output.js  230 bytes       0  [emitted]  
   output.js    6.45 kB       1  [emitted]  main
 Entrypoint main = output.js
 chunk    {0} 0.output.js 28 bytes {1} [rendered]
     > [0] (webpack)/~/bundle-loader!./file.js 7:0-14:2
     [2] ./file.js 28 bytes {0} [built]
         cjs require !!./file.js [0] (webpack)/~/bundle-loader!./file.js 8:8-30
-chunk    {1} output.js (main) 378 bytes [entry] [rendered]
+chunk    {1} output.js (main) 375 bytes [entry] [rendered]
     > main [1] ./example.js 
     [0] (webpack)/~/bundle-loader!./file.js 281 bytes {1} [built]
         cjs require bundle-loader!./file.js [1] ./example.js 1:0-34
-    [1] ./example.js 97 bytes {1} [built]
+    [1] ./example.js 94 bytes {1} [built]
 ```
 
 ## Minimized (uglify-js, no zip)
 
 ```
-Hash: 3760272aaec4944ab110
-Version: webpack 2.2.0-rc.2
+Hash: dd6981a76eaabcafb273
+Version: webpack 2.2.1
       Asset      Size  Chunks             Chunk Names
 0.output.js  58 bytes       0  [emitted]  
   output.js   1.57 kB       1  [emitted]  main
@@ -263,9 +263,9 @@ chunk    {0} 0.output.js 28 bytes {1} [rendered]
     > [0] (webpack)/~/bundle-loader!./file.js 7:0-14:2
     [2] ./file.js 28 bytes {0} [built]
         cjs require !!./file.js [0] (webpack)/~/bundle-loader!./file.js 8:8-30
-chunk    {1} output.js (main) 378 bytes [entry] [rendered]
+chunk    {1} output.js (main) 375 bytes [entry] [rendered]
     > main [1] ./example.js 
     [0] (webpack)/~/bundle-loader!./file.js 281 bytes {1} [built]
         cjs require bundle-loader!./file.js [1] ./example.js 1:0-34
-    [1] ./example.js 97 bytes {1} [built]
+    [1] ./example.js 94 bytes {1} [built]
 ```

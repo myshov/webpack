@@ -102,7 +102,7 @@ require.ensure(["c"], function(require) {
 /******/ 		if(installedChunks[chunkId] === 0)
 /******/ 			return Promise.resolve();
 
-/******/ 		// an Promise means "currently loading".
+/******/ 		// a Promise means "currently loading".
 /******/ 		if(installedChunks[chunkId]) {
 /******/ 			return installedChunks[chunkId][2];
 /******/ 		}
@@ -179,7 +179,7 @@ require.ensure(["c"], function(require) {
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 ```
@@ -192,40 +192,38 @@ require.ensure(["c"], function(require) {
 /*!****************!*\
   !*** ./~/b.js ***!
   \****************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 // module b
 
-/***/ },
+/***/ }),
 /* 1 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************!*\
   !*** ./~/a.js ***!
   \****************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 // module a
 
-/***/ },
-/* 2 */,
-/* 3 */,
-/* 4 */
+/***/ }),
+/* 2 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************!*\
   !*** ./example.js ***!
   \********************/
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 var a = __webpack_require__(/*! a */ 1);
 var b = __webpack_require__(/*! b */ 0);
 __webpack_require__.e/* require.ensure */(0).then((function(require) {
     __webpack_require__(/*! b */ 0).xyz();
-    var d = __webpack_require__(/*! d */ 3);
+    var d = __webpack_require__(/*! d */ 4);
 }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 
-/***/ }
+/***/ })
 /******/ ]);
 ```
 
@@ -235,35 +233,36 @@ __webpack_require__.e/* require.ensure */(0).then((function(require) {
 webpackJsonp([0],[
 /* 0 */,
 /* 1 */,
-/* 2 */
+/* 2 */,
+/* 3 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************!*\
   !*** ./~/c.js ***!
   \****************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 // module c
 
-/***/ },
-/* 3 */
+/***/ }),
+/* 4 */
 /* unknown exports provided */
 /* all exports used */
 /*!****************!*\
   !*** ./~/d.js ***!
   \****************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 // module d
 
-/***/ }
+/***/ })
 ]);
 ```
 
 Minimized
 
 ``` javascript
-webpackJsonp([0],[,,function(n,c){},function(n,c){}]);
+webpackJsonp([0],[,,,function(n,c){},function(n,c){}]);
 ```
 
 # Info
@@ -271,49 +270,49 @@ webpackJsonp([0],[,,function(n,c){},function(n,c){}]);
 ## Uncompressed
 
 ```
-Hash: 199e267fd7f9f732d06f
-Version: webpack 2.2.0-rc.2
+Hash: 1df3128cc27b6bc63b7c
+Version: webpack 2.2.1
       Asset       Size  Chunks             Chunk Names
-0.output.js  407 bytes       0  [emitted]  
-  output.js    6.36 kB       1  [emitted]  main
+0.output.js  420 bytes       0  [emitted]  
+  output.js    6.34 kB       1  [emitted]  main
 Entrypoint main = output.js
 chunk    {0} 0.output.js 22 bytes {1} [rendered]
-    > [4] ./example.js 3:0-6:2
-    [2] ./~/c.js 11 bytes {0} [built]
-        require.ensure item c [4] ./example.js 3:0-6:2
-    [3] ./~/d.js 11 bytes {0} [built]
-        cjs require d [4] ./example.js 5:12-24
-chunk    {1} output.js (main) 166 bytes [entry] [rendered]
-    > main [4] ./example.js 
+    > [2] ./example.js 3:0-6:2
+    [3] ./~/c.js 11 bytes {0} [built]
+        require.ensure item c [2] ./example.js 3:0-6:2
+    [4] ./~/d.js 11 bytes {0} [built]
+        cjs require d [2] ./example.js 5:12-24
+chunk    {1} output.js (main) 161 bytes [entry] [rendered]
+    > main [2] ./example.js 
     [0] ./~/b.js 11 bytes {1} [built]
-        cjs require b [4] ./example.js 2:8-20
-        cjs require b [4] ./example.js 4:4-16
+        cjs require b [2] ./example.js 2:8-20
+        cjs require b [2] ./example.js 4:4-16
     [1] ./~/a.js 11 bytes {1} [built]
-        cjs require a [4] ./example.js 1:8-20
-    [4] ./example.js 144 bytes {1} [built]
+        cjs require a [2] ./example.js 1:8-20
+    [2] ./example.js 139 bytes {1} [built]
 ```
 
 ## Minimized (uglify-js, no zip)
 
 ```
-Hash: 199e267fd7f9f732d06f
-Version: webpack 2.2.0-rc.2
+Hash: 1df3128cc27b6bc63b7c
+Version: webpack 2.2.1
       Asset      Size  Chunks             Chunk Names
-0.output.js  54 bytes       0  [emitted]  
+0.output.js  55 bytes       0  [emitted]  
   output.js   1.47 kB       1  [emitted]  main
 Entrypoint main = output.js
 chunk    {0} 0.output.js 22 bytes {1} [rendered]
-    > [4] ./example.js 3:0-6:2
-    [2] ./~/c.js 11 bytes {0} [built]
-        require.ensure item c [4] ./example.js 3:0-6:2
-    [3] ./~/d.js 11 bytes {0} [built]
-        cjs require d [4] ./example.js 5:12-24
-chunk    {1} output.js (main) 166 bytes [entry] [rendered]
-    > main [4] ./example.js 
+    > [2] ./example.js 3:0-6:2
+    [3] ./~/c.js 11 bytes {0} [built]
+        require.ensure item c [2] ./example.js 3:0-6:2
+    [4] ./~/d.js 11 bytes {0} [built]
+        cjs require d [2] ./example.js 5:12-24
+chunk    {1} output.js (main) 161 bytes [entry] [rendered]
+    > main [2] ./example.js 
     [0] ./~/b.js 11 bytes {1} [built]
-        cjs require b [4] ./example.js 2:8-20
-        cjs require b [4] ./example.js 4:4-16
+        cjs require b [2] ./example.js 2:8-20
+        cjs require b [2] ./example.js 4:4-16
     [1] ./~/a.js 11 bytes {1} [built]
-        cjs require a [4] ./example.js 1:8-20
-    [4] ./example.js 144 bytes {1} [built]
+        cjs require a [2] ./example.js 1:8-20
+    [2] ./example.js 139 bytes {1} [built]
 ```

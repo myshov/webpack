@@ -42,7 +42,7 @@ module.exports = {
 			}
 		}
 	]
-}
+};
 ```
 
 # js/output.js
@@ -139,36 +139,36 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!**********************!*\
   !*** external "add" ***!
   \**********************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 module.exports = __WEBPACK_EXTERNAL_MODULE_0__;
 
-/***/ },
+/***/ }),
 /* 1 */
 /* unknown exports provided */
 /* all exports used */
 /*!***************************************************************************************************************!*\
   !*** external {"root":"subtract","commonjs2":"./subtract","commonjs":["./math","subtract"],"amd":"subtract"} ***!
   \***************************************************************************************************************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
 
-/***/ },
+/***/ }),
 /* 2 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************!*\
   !*** ./example.js ***!
   \********************/
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 var add = __webpack_require__(/*! add */ 0);
 var subtract = __webpack_require__(/*! subtract */ 1);
 
 exports.exampleValue = subtract(add(42, 2), 2);
 
-/***/ }
+/***/ })
 /******/ ]);
 });
 ```
@@ -178,27 +178,27 @@ exports.exampleValue = subtract(add(42, 2), 2);
 ## Uncompressed
 
 ```
-Hash: db7da8a5fdfceab24e67
-Version: webpack 2.2.0-rc.2
+Hash: b48b7e2830381b4297e4
+Version: webpack 2.2.1
     Asset     Size  Chunks             Chunk Names
 output.js  4.16 kB       0  [emitted]  main
 Entrypoint main = output.js
-chunk    {0} output.js (main) 197 bytes [entry] [rendered]
+chunk    {0} output.js (main) 194 bytes [entry] [rendered]
     > main [2] ./example.js 
-    [2] ./example.js 113 bytes {0} [built]
+    [2] ./example.js 110 bytes {0} [built]
      + 2 hidden modules
 ```
 
 ## Minimized (uglify-js, no zip)
 
 ```
-Hash: db7da8a5fdfceab24e67
-Version: webpack 2.2.0-rc.2
+Hash: b48b7e2830381b4297e4
+Version: webpack 2.2.1
     Asset  Size  Chunks             Chunk Names
 output.js  1 kB       0  [emitted]  main
 Entrypoint main = output.js
-chunk    {0} output.js (main) 197 bytes [entry] [rendered]
+chunk    {0} output.js (main) 194 bytes [entry] [rendered]
     > main [2] ./example.js 
-    [2] ./example.js 113 bytes {0} [built]
+    [2] ./example.js 110 bytes {0} [built]
      + 2 hidden modules
 ```

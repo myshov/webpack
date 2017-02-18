@@ -22,8 +22,8 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract({
-					loader: "css-loader"
+				use: ExtractTextPlugin.extract({
+					use: "css-loader"
 				})
 			},
 			{ test: /\.png$/, loader: "file-loader" }
@@ -120,22 +120,22 @@ module.exports = {
 /*!*******************!*\
   !*** ./style.css ***!
   \*******************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
-/***/ },
+/***/ }),
 /* 1 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************!*\
   !*** ./example.js ***!
   \********************/
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! ./style.css */ 0);
 
-/***/ }
+/***/ })
 /******/ ]);
 ```
 
@@ -152,12 +152,12 @@ body {
 ## Uncompressed
 
 ```
-Hash: 1827bb0bcfac5d6b28d3
-Version: webpack 2.2.0-rc.2
+Hash: 7d4152c5549694fcaea8
+Version: webpack 2.2.1
                                Asset       Size  Chunks             Chunk Names
 ce21cbdd9b894e6af794813eb3fdaf60.png  119 bytes          [emitted]  
                            output.js    2.93 kB       0  [emitted]  main
-                           style.css   69 bytes       0  [emitted]  main
+                           style.css   67 bytes       0  [emitted]  main
 Entrypoint main = output.js style.css
 chunk    {0} output.js, style.css (main) 64 bytes [entry] [rendered]
     > main [1] ./example.js 
@@ -173,15 +173,15 @@ Child extract-text-webpack-plugin:
         [0] (webpack)/~/css-loader/lib/css-base.js 1.51 kB {0} [built]
             cjs require ./../../node_modules/css-loader/lib/css-base.js [2] (webpack)/~/css-loader!./style.css 1:27-85
         [1] ./image.png 82 bytes {0} [built]
-            cjs require ./image.png [2] (webpack)/~/css-loader!./style.css 6:58-80
-        [2] (webpack)/~/css-loader!./style.css 224 bytes {0} [built]
+            cjs require ./image.png [2] (webpack)/~/css-loader!./style.css 6:56-78
+        [2] (webpack)/~/css-loader!./style.css 220 bytes {0} [built]
 ```
 
 ## Minimized (uglify-js, no zip)
 
 ```
-Hash: 1827bb0bcfac5d6b28d3
-Version: webpack 2.2.0-rc.2
+Hash: 38e66086c6fae5ca2905
+Version: webpack 2.2.1
                                Asset       Size  Chunks             Chunk Names
 ce21cbdd9b894e6af794813eb3fdaf60.png  119 bytes          [emitted]  
                            output.js  537 bytes       0  [emitted]  main

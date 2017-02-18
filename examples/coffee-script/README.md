@@ -105,21 +105,21 @@ module.exports = 42
 /*!*********************!*\
   !*** ./cup2.coffee ***!
   \*********************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 console.log("yeah coffee-script");
 
 module.exports = 42;
 
 
-/***/ },
+/***/ }),
 /* 1 */
 /* unknown exports provided */
 /* all exports used */
 /*!*********************!*\
   !*** ./cup1.coffee ***!
   \*********************/
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 module.exports = {
   cool: "stuff",
@@ -129,18 +129,18 @@ module.exports = {
 };
 
 
-/***/ },
+/***/ }),
 /* 2 */
 /* unknown exports provided */
 /* all exports used */
 /*!********************!*\
   !*** ./example.js ***!
   \********************/
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 console.log(__webpack_require__(/*! ./cup1 */ 1));
 
-/***/ }
+/***/ })
 /******/ ]);
 ```
 
@@ -149,10 +149,10 @@ console.log(__webpack_require__(/*! ./cup1 */ 1));
 ## Uncompressed
 
 ```
-Hash: 909077149c791bec4711
-Version: webpack 2.2.0-rc.2
+Hash: 0fb81f26f70778b1c84a
+Version: webpack 2.2.1
     Asset     Size  Chunks             Chunk Names
-output.js  3.32 kB       0  [emitted]  main
+output.js  3.33 kB       0  [emitted]  main
 Entrypoint main = output.js
 chunk    {0} output.js (main) 206 bytes [entry] [rendered]
     > main [2] ./example.js 
@@ -167,8 +167,8 @@ chunk    {0} output.js (main) 206 bytes [entry] [rendered]
 ## Minimized (uglify-js, no zip)
 
 ```
-Hash: 909077149c791bec4711
-Version: webpack 2.2.0-rc.2
+Hash: 0fb81f26f70778b1c84a
+Version: webpack 2.2.1
     Asset       Size  Chunks             Chunk Names
 output.js  673 bytes       0  [emitted]  main
 Entrypoint main = output.js

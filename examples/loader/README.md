@@ -100,7 +100,7 @@ module.exports = function(content) {
 /******/ 	__webpack_require__.p = "js/";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 ```
@@ -113,38 +113,55 @@ module.exports = function(content) {
 /*!*****************************************!*\
   !*** (webpack)/~/css-loader!./test.css ***!
   \*****************************************/
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 2)();
+exports = module.exports = __webpack_require__(/*! ./../../~/css-loader/lib/css-base.js */ 3)();
 // imports
 
 
 // module
-exports.push([module.i, ".some-class {\r\n\tcolor: hotpink;\r\n}\r\n", ""]);
+exports.push([module.i, ".some-class {\n\tcolor: hotpink;\n}\n", ""]);
 
 // exports
 
 
-/***/ },
+/***/ }),
 /* 1 */
 /* unknown exports provided */
 /* all exports used */
 /*!*****************************!*\
   !*** ./loader.js!./file.js ***!
   \*****************************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 exports.answer = 42;
 exports.foo = "bar";
 
-/***/ },
+/***/ }),
 /* 2 */
+/* unknown exports provided */
+/* all exports used */
+/*!********************!*\
+  !*** ./example.js ***!
+  \********************/
+/***/ (function(module, exports, __webpack_require__) {
+
+// use our loader
+console.dir(__webpack_require__(/*! ./loader!./file */ 1));
+
+// use buildin css loader
+console.dir(__webpack_require__(/*! ./test.css */ 0)); // default by extension
+console.dir(__webpack_require__(/*! css-loader!./test.css */ 0)); // manual
+
+
+/***/ }),
+/* 3 */
 /* unknown exports provided */
 /* all exports used */
 /*!**********************************************!*\
   !*** (webpack)/~/css-loader/lib/css-base.js ***!
   \**********************************************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 /*
 	MIT License http://www.opensource.org/licenses/mit-license.php
@@ -198,24 +215,7 @@ module.exports = function() {
 };
 
 
-/***/ },
-/* 3 */
-/* unknown exports provided */
-/* all exports used */
-/*!********************!*\
-  !*** ./example.js ***!
-  \********************/
-/***/ function(module, exports, __webpack_require__) {
-
-// use our loader
-console.dir(__webpack_require__(/*! ./loader!./file */ 1));
-
-// use buildin css loader
-console.dir(__webpack_require__(/*! ./test.css */ 0)); // default by extension
-console.dir(__webpack_require__(/*! css-loader!./test.css */ 0)); // manual
-
-
-/***/ }
+/***/ })
 /******/ ]);
 ```
 
@@ -234,39 +234,39 @@ Prints in node.js (`enhanced-require example.js`) and in browser:
 ## Uncompressed
 
 ```
-Hash: 197d528d54679c3ef22f
-Version: webpack 2.2.0-rc.2
+Hash: ff75b020dbaef1ea68a6
+Version: webpack 2.2.1
     Asset     Size  Chunks             Chunk Names
-output.js  5.43 kB       0  [emitted]  main
+output.js  5.42 kB       0  [emitted]  main
 Entrypoint main = output.js
-chunk    {0} output.js (main) 1.96 kB [entry] [rendered]
-    > main [3] ./example.js 
-    [0] (webpack)/~/css-loader!./test.css 202 bytes {0} [built]
-        cjs require !css-loader!./test.css [3] ./example.js 6:12-45
-        cjs require ./test.css [3] ./example.js 5:12-33
+chunk    {0} output.js (main) 1.95 kB [entry] [rendered]
+    > main [2] ./example.js 
+    [0] (webpack)/~/css-loader!./test.css 196 bytes {0} [built]
+        cjs require !css-loader!./test.css [2] ./example.js 6:12-45
+        cjs require ./test.css [2] ./example.js 5:12-33
     [1] ./loader.js!./file.js 41 bytes {0} [built]
-        cjs require ./loader!./file [3] ./example.js 2:12-38
-    [2] (webpack)/~/css-loader/lib/css-base.js 1.51 kB {0} [built]
+        cjs require ./loader!./file [2] ./example.js 2:12-38
+    [2] ./example.js 204 bytes {0} [built]
+    [3] (webpack)/~/css-loader/lib/css-base.js 1.51 kB {0} [built]
         cjs require ./../../node_modules/css-loader/lib/css-base.js [0] (webpack)/~/css-loader!./test.css 1:27-85
-    [3] ./example.js 210 bytes {0} [built]
 ```
 
 ## Minimized (uglify-js, no zip)
 
 ```
-Hash: 73ca0b614fa918a99453
-Version: webpack 2.2.0-rc.2
+Hash: 7f2b9db61bd7ff96b467
+Version: webpack 2.2.1
     Asset     Size  Chunks             Chunk Names
 output.js  1.16 kB       0  [emitted]  main
 Entrypoint main = output.js
 chunk    {0} output.js (main) 1.94 kB [entry] [rendered]
-    > main [3] ./example.js 
+    > main [2] ./example.js 
     [0] (webpack)/~/css-loader!./test.css 185 bytes {0} [built]
-        cjs require !css-loader!./test.css [3] ./example.js 6:12-45
-        cjs require ./test.css [3] ./example.js 5:12-33
+        cjs require !css-loader!./test.css [2] ./example.js 6:12-45
+        cjs require ./test.css [2] ./example.js 5:12-33
     [1] ./loader.js!./file.js 41 bytes {0} [built]
-        cjs require ./loader!./file [3] ./example.js 2:12-38
-    [2] (webpack)/~/css-loader/lib/css-base.js 1.51 kB {0} [built]
+        cjs require ./loader!./file [2] ./example.js 2:12-38
+    [2] ./example.js 204 bytes {0} [built]
+    [3] (webpack)/~/css-loader/lib/css-base.js 1.51 kB {0} [built]
         cjs require ./../../node_modules/css-loader/lib/css-base.js [0] (webpack)/~/css-loader!./test.css 1:27-85
-    [3] ./example.js 210 bytes {0} [built]
 ```

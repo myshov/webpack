@@ -48,8 +48,8 @@ require.ensure(["./a"], function(require) {
 # webpack.config.js
 
 ``` javascript
-var path = require("path");
 var CommonsChunkPlugin = require("../../lib/optimize/CommonsChunkPlugin");
+
 module.exports = {
 	plugins: [
 		new CommonsChunkPlugin({
@@ -61,7 +61,7 @@ module.exports = {
 			async: true
 		})
 	]
-}
+};
 ```
 
 # js/output.js
@@ -130,7 +130,7 @@ module.exports = {
 /******/ 		if(installedChunks[chunkId] === 0)
 /******/ 			return Promise.resolve();
 
-/******/ 		// an Promise means "currently loading".
+/******/ 		// a Promise means "currently loading".
 /******/ 		if(installedChunks[chunkId]) {
 /******/ 			return installedChunks[chunkId][2];
 /******/ 		}
@@ -221,7 +221,7 @@ module.exports = {
 /*!********************!*\
   !*** ./example.js ***!
   \********************/
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 // a chunks with a, b, c
 Promise.all/* require */([__webpack_require__.e(0), __webpack_require__.e(2)]).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ./a */ 0), __webpack_require__(/*! ./b */ 1), __webpack_require__(/*! ./c */ 2)]; (function(a, b, c) {}.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}).catch(__webpack_require__.oe);
@@ -233,7 +233,7 @@ Promise.all/* require.ensure */([__webpack_require__.e(0), __webpack_require__.e
 }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 
 
-/***/ }
+/***/ })
 
 /******/ });
 ```
@@ -248,22 +248,22 @@ webpackJsonp([0],[
 /*!**************!*\
   !*** ./a.js ***!
   \**************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 module.exports = "a";
 
-/***/ },
+/***/ }),
 /* 1 */
 /* unknown exports provided */
 /* all exports used */
 /*!**************!*\
   !*** ./b.js ***!
   \**************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 module.exports = "b";
 
-/***/ }
+/***/ })
 ]);
 ```
 
@@ -278,11 +278,11 @@ webpackJsonp([1],{
 /*!**************!*\
   !*** ./d.js ***!
   \**************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 module.exports = "d";
 
-/***/ }
+/***/ })
 
 });
 ```
@@ -298,11 +298,11 @@ webpackJsonp([2],{
 /*!**************!*\
   !*** ./c.js ***!
   \**************/
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 module.exports = "c";
 
-/***/ }
+/***/ })
 
 });
 ```
@@ -312,13 +312,13 @@ module.exports = "c";
 ## Uncompressed
 
 ```
-Hash: 303428dc1404ff150977
-Version: webpack 2.2.0-rc.2
+Hash: 17717faf3e890c146908
+Version: webpack 2.2.1
       Asset       Size  Chunks             Chunk Names
-0.output.js  397 bytes       0  [emitted]  
-1.output.js  212 bytes       1  [emitted]  
-2.output.js  212 bytes       2  [emitted]  
-  output.js    6.32 kB       3  [emitted]  main
+0.output.js  401 bytes       0  [emitted]  
+1.output.js  214 bytes       1  [emitted]  
+2.output.js  214 bytes       2  [emitted]  
+  output.js    6.31 kB       3  [emitted]  main
 Entrypoint main = output.js
 chunk    {0} 0.output.js 42 bytes {3} [rendered]
     > async commons [4] ./example.js 2:0-52
@@ -337,16 +337,16 @@ chunk    {2} 2.output.js 21 bytes {3} [rendered]
     > [4] ./example.js 2:0-52
     [2] ./c.js 21 bytes {2} [built]
         amd require ./c [4] ./example.js 2:0-52
-chunk    {3} output.js (main) 194 bytes [entry] [rendered]
+chunk    {3} output.js (main) 186 bytes [entry] [rendered]
     > main [4] ./example.js 
-    [4] ./example.js 194 bytes {3} [built]
+    [4] ./example.js 186 bytes {3} [built]
 ```
 
 ## Minimized (uglify-js, no zip)
 
 ```
-Hash: 303428dc1404ff150977
-Version: webpack 2.2.0-rc.2
+Hash: 17717faf3e890c146908
+Version: webpack 2.2.1
       Asset      Size  Chunks             Chunk Names
 0.output.js  78 bytes       0  [emitted]  
 1.output.js  51 bytes       1  [emitted]  
@@ -370,7 +370,7 @@ chunk    {2} 2.output.js 21 bytes {3} [rendered]
     > [4] ./example.js 2:0-52
     [2] ./c.js 21 bytes {2} [built]
         amd require ./c [4] ./example.js 2:0-52
-chunk    {3} output.js (main) 194 bytes [entry] [rendered]
+chunk    {3} output.js (main) 186 bytes [entry] [rendered]
     > main [4] ./example.js 
-    [4] ./example.js 194 bytes {3} [built]
+    [4] ./example.js 186 bytes {3} [built]
 ```

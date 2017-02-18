@@ -107,20 +107,20 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!********************!*\
   !*** ./example.js ***!
   \********************/
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(exports, "value", function() { return value; });
-/* harmony export (immutable) */ exports["increment"] = increment;
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "value", function() { return value; });
+/* harmony export (immutable) */ __webpack_exports__["increment"] = increment;
 var value = 0;
 function increment() {
 	value++;
 }
-/* harmony default export */ exports["default"] = "MyLibrary";
+/* harmony default export */ __webpack_exports__["default"] = ("MyLibrary");
 
 
-/***/ }
+/***/ })
 /******/ ]);
 });
 ```
@@ -130,27 +130,27 @@ function increment() {
 ## Uncompressed
 
 ```
-Hash: 0f7e47813bc19e17e857
-Version: webpack 2.2.0-rc.2
+Hash: 7685c8928f57aaaabf28
+Version: webpack 2.2.1
            Asset     Size  Chunks             Chunk Names
-MyLibrary.umd.js  3.42 kB       0  [emitted]  main
+MyLibrary.umd.js  3.48 kB       0  [emitted]  main
 Entrypoint main = MyLibrary.umd.js
-chunk    {0} MyLibrary.umd.js (main) 97 bytes [entry] [rendered]
+chunk    {0} MyLibrary.umd.js (main) 92 bytes [entry] [rendered]
     > main [0] ./example.js 
-    [0] ./example.js 97 bytes {0} [built]
+    [0] ./example.js 92 bytes {0} [built]
         [exports: value, increment, default]
 ```
 
 ## Minimized (uglify-js, no zip)
 
 ```
-Hash: 0f7e47813bc19e17e857
-Version: webpack 2.2.0-rc.2
+Hash: 7685c8928f57aaaabf28
+Version: webpack 2.2.1
            Asset       Size  Chunks             Chunk Names
 MyLibrary.umd.js  898 bytes       0  [emitted]  main
 Entrypoint main = MyLibrary.umd.js
-chunk    {0} MyLibrary.umd.js (main) 97 bytes [entry] [rendered]
+chunk    {0} MyLibrary.umd.js (main) 92 bytes [entry] [rendered]
     > main [0] ./example.js 
-    [0] ./example.js 97 bytes {0} [built]
+    [0] ./example.js 92 bytes {0} [built]
         [exports: value, increment, default]
 ```
